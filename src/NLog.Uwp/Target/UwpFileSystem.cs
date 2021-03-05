@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using Windows.Storage;
+using Windows.Storage.Streams;
 
 namespace NLog.Targets
 {
@@ -26,12 +27,12 @@ namespace NLog.Targets
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-        public async Task<Stream> FileWriterStream(string name)
+        public Stream OpenFileStream(string name)
         {
-            StorageFolder folder = await StorageFolder.GetFolderFromPathAsync(name);
+            StorageFolder folder = StorageFolder.GetFolderFromPathAsync(name).GetResults();
 
-            StorageFile newFile = await folder.CreateFileAsync(name);
-            var streamNewFile = await newFile.OpenAsync(FileAccessMode.ReadWrite);
+            StorageFile newFile =  folder.CreateFileAsync(name).GetResults();
+            IRandomAccessStream streamNewFile = newFile.OpenAsync(FileAccessMode.ReadWrite).GetResults();
 
             return streamNewFile.AsStreamForWrite();
         }

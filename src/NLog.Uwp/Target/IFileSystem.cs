@@ -56,7 +56,7 @@ namespace NLog.Targets
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-        Task<Stream> FileWriterStream(string name);
+        Stream OpenFileStream(string name);
 
     }
 }
