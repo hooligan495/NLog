@@ -1,0 +1,59 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+    <TargetFramework>net5.0-windows10.0.17763.0</TargetFramework>
+    <Title>NLog UwpFile target</Title>
+    <Company>NLog</Company>
+    <Description>NLog UwpFile target - write using the Windows.Storage apis</Description>
+    <Product>NLog UwpFile target</Product>
+    <InformationalVersion>$(ProductVersion)</InformationalVersion>
+    <Authors>Jarek Kowalski,Kim Christensen,Julian Verdurmen</Authors>
+    <CurrentYear>$([System.DateTime]::Now.ToString(yyyy))</CurrentYear>
+    <Copyright>Copyright (c) 2004-$(CurrentYear) NLog Project - https://nlog-project.org/ </Copyright>
+
+    <PackageReleaseNotes>
+      Docs:
+      https://github.com/NLog/NLog/wiki/UwpFile-target
+    </PackageReleaseNotes>
+    <PackageTags>NLog;UwpFileS;logging;log</PackageTags>
+    <PackageIcon>N.png</PackageIcon>
+    <PackageProjectUrl>https://nlog-project.org/</PackageProjectUrl>
+    <PackageLicenseExpression>BSD-3-Clause</PackageLicenseExpression>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/NLog/NLog.git</RepositoryUrl>
+
+    <SignAssembly>true</SignAssembly>
+    <AssemblyVersion>4.0.0.0</AssemblyVersion>
+    <AssemblyOriginatorKeyFile>..\NLog.snk</AssemblyOriginatorKeyFile>
+    <PublicSign Condition=" '$(OS)' != 'Windows_NT' ">true</PublicSign>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NLog\NLog.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <AssemblyTitle>$(Title)</AssemblyTitle>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="..\NLog\Resources\NLog.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="N.png" Pack="true" PackagePath="" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Target\" />
+  </ItemGroup>
+
+  <Target Name="DownloadMissingContent" BeforeTargets="GenerateNuspec">
+    <DownloadFile SourceUrl="https://nlog-project.org/N.png" DestinationFolder="$(MSBuildThisFileDirectory)" />
+  </Target>
+
+</Project>
