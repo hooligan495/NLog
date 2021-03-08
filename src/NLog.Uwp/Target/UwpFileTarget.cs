@@ -93,8 +93,10 @@ namespace NLog.Uwp.Target
             string fileName = RenderLogEvent(this.FileName, logEvent);
 
             var fileStream = GetFileStream(fileName);
-            fileStream.Write(Encoding.GetBytes(fileContent));
-            fileStream.Write(Encoding.GetBytes(Environment.NewLine));
+            var nl = Encoding.GetBytes(Environment.NewLine);
+            var bytes = Encoding.GetBytes(fileContent);
+            fileStream.Write(bytes, (int)fileStream.Position, bytes.Length);
+            fileStream.Write(nl, (int)fileStream.Position, nl.Length);
             fileStream.Flush();
         }
 

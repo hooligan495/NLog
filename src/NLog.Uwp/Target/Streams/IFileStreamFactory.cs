@@ -38,6 +38,6 @@ namespace NLog.Uwp.Target.Streams
         /// Open a new stream based on the platform we are using
         /// </summary>
         /// <param name="filename"></param>
-        public Stream Open(string filename);
+        Stream Open(string filename);
     }
 }
