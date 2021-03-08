@@ -25,27 +25,13 @@
 //  CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
 //  SUBSTITUTE GOODS OR SERVICES
 
-using System.IO;
-using NLog.Targets;
 
-namespace NLog.Uwp.Target.Streams
+namespace NLog.Uwp.Tests.Target
 {
-    class FileStreamFactory : IFileStreamFactory
+    using NLog.UnitTests;
+
+    public class UwpTargetTests : NLogTestBase
     {
-        IFileSystem _fileSystem;
 
-        /// <summary>
-        /// Create the file stream factory
-        /// </summary>
-        public FileStreamFactory()
-        {
-            //TODO:  make this more flexible if we want to take any of this code to Nlog proper
-            _fileSystem = new UwpFileSystem();
-        }
-
-        public Stream Open(string filename)
-        {
-            return _fileSystem.OpenFileStream(filename);
-        }
     }
 }

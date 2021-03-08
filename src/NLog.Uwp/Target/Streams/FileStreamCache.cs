@@ -28,7 +28,9 @@
 namespace NLog.Uwp.Target.Streams
 {
     /// <summary>
-    /// File stream management
+    /// File stream management if we need to have more than one stream open
+    /// or if we want to have metadata associated with a stream we could manage
+    /// it through here
     /// </summary>
     public class FileStreamCache : IFileStreamCache
     {
