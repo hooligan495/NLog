@@ -26,12 +26,51 @@
 //  SUBSTITUTE GOODS OR SERVICES
 
 
+using System.IO;
+using System.Text;
+using NLog.Config;
+using NLog.Layouts;
+using NLog.Targets;
+using NLog.Uwp.Target;
+using Xunit;
+
 namespace NLog.Uwp.Tests.Target
 {
     using NLog.UnitTests;
 
     public class UwpTargetTests : NLogTestBase
     {
+        private readonly ILogger logger = LogManager.GetLogger("NLog.UnitTests.Targets.UwpFileTargetTests");
 
+
+        [Fact]
+        public void SimpleFileTest()
+        {
+            var logFile = Path.GetTempFileName();
+            try
+            {
+                var fileTarget = new UwpFileTarget
+                {
+                    FileName = SimpleLayout.Escape(logFile),
+                    Layout = "${level} ${message}",
+                };
+
+                SimpleConfigurator.ConfigureForTargetLogging(fileTarget, LogLevel.Debug);
+
+                logger.Debug("aaa");
+                logger.Info("bbb");
+                logger.Warn("ccc");
+
+                LogManager.Configuration = null; // Flush
+
+                AssertFileContents(logFile, "Debug aaa\nInfo bbb\nWarn ccc\n", Encoding.UTF8);
+            }
+            finally
+            {
+                if (File.Exists(logFile))
+                    File.Delete(logFile);
+            }
+
+        }
     }
 }
