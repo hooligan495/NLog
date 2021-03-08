@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.Threading.Tasks;
 using Windows.Storage;
 using Windows.Storage.Streams;
 
@@ -11,7 +9,7 @@ namespace NLog.Targets
     /// Wrap the .net Native file management so that we can open and close files.
     /// UWP supports returning a "managed" Stream (Windows.Storage) as a File.IO.Stream type
     /// </summary>
-    public class UapFileSystem : IFileSystem
+    public class UwpFileSystem : IFileSystem
     {
         /// <summary>
         /// Delete specified file using the Windows.Storage API

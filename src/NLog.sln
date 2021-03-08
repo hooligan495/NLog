@@ -62,6 +62,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NLog.OutputDebugString", "N
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NLog.Uwp", "NLog.Uwp\NLog.Uwp.csproj", "{FFE88AE0-DA3D-44C0-A620-98BFB951B703}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NLog.Uwp.Tests", "..\tests\NLog.Uwp.Tests\NLog.Uwp.Tests.csproj", "{746BCEC0-91AF-4DD7-9086-DEA9A0E11283}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -144,6 +146,10 @@ Global
 		{FFE88AE0-DA3D-44C0-A620-98BFB951B703}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FFE88AE0-DA3D-44C0-A620-98BFB951B703}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FFE88AE0-DA3D-44C0-A620-98BFB951B703}.Release|Any CPU.Build.0 = Release|Any CPU
+		{746BCEC0-91AF-4DD7-9086-DEA9A0E11283}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{746BCEC0-91AF-4DD7-9086-DEA9A0E11283}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{746BCEC0-91AF-4DD7-9086-DEA9A0E11283}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{746BCEC0-91AF-4DD7-9086-DEA9A0E11283}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -166,6 +172,7 @@ Global
 		{1648106F-CD67-4009-878B-96B5D2369B6C} = {194AB4BD-C817-4C59-A86C-49D89B8C3A64}
 		{FDABA8A6-80EE-4FBA-A5AA-2EB972DC4F17} = {194AB4BD-C817-4C59-A86C-49D89B8C3A64}
 		{FFE88AE0-DA3D-44C0-A620-98BFB951B703} = {194AB4BD-C817-4C59-A86C-49D89B8C3A64}
+		{746BCEC0-91AF-4DD7-9086-DEA9A0E11283} = {194AB4BD-C817-4C59-A86C-49D89B8C3A64}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6B4C8E9F-1E2F-4AB3-993A-8776CFA08DC0}
