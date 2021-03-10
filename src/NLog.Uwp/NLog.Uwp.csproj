@@ -1,8 +1,8 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="MSBuild.Sdk.Extras/3.0.22">
 
   <PropertyGroup>
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
-    <TargetFramework>net5.0-windows10.0.17763.0</TargetFramework>
+    <TargetFramework>uap10.0.17763</TargetFramework>
     <Title>NLog UwpFile target</Title>
     <Company>NLog</Company>
     <Description>NLog UwpFile target - write using the Windows.Storage apis</Description>
